@@ -13,6 +13,12 @@ public class TypGOT {
 //    ZaWytrwaloscMala, ZaWytrwaloscDuza;
 
 
+    public TypGOT(int id, String rodzaj, int wymaganePunkty) {
+        this.id = id;
+        this.rodzaj = rodzaj;
+        this.wymaganePunkty = wymaganePunkty;
+    }
+
     public int getId() {
         return id;
     }

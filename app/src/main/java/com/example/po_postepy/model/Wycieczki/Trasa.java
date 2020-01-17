@@ -14,7 +14,17 @@ public class Trasa {
     private TerenGorski terenGorski;
     private int punkty;
 
-
+    public Trasa(int id, String nazwa, double odleglosc, double sumaRoznicPoziomow, PunktPosredni punktA, PunktPosredni punktB, GrupaGorska grupaGorska, TerenGorski terenGorski, int punkty) {
+        this.id = id;
+        this.nazwa = nazwa;
+        this.odleglosc = odleglosc;
+        this.sumaRoznicPoziomow = sumaRoznicPoziomow;
+        this.punktA = punktA;
+        this.punktB = punktB;
+        this.grupaGorska = grupaGorska;
+        this.terenGorski = terenGorski;
+        this.punkty = punkty;
+    }
 
     public int getId() {
         return id;

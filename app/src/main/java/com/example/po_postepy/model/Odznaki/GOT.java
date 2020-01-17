@@ -12,6 +12,13 @@ public class GOT {
     private Uzytkownik idZdobywajacego;
     private Uzytkownik idPrzodownika;
 
+    public GOT(int id, int punktyZdobyte, TypGOT typGOT, Uzytkownik idZdobywajacego) {
+        this.id = id;
+        this.punktyZdobyte = punktyZdobyte;
+        this.typGOT = typGOT;
+        this.idZdobywajacego = idZdobywajacego;
+    }
+
     public int getId() {
         return id;
     }

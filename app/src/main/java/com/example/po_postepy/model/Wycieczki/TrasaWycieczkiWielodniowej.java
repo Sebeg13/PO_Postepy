@@ -5,17 +5,8 @@ import java.util.Date;
 public class TrasaWycieczkiWielodniowej {
 
     private int id;
-    private WycieczkaWielodniowa wycieczkaWielodniowa;
     private Trasa trasa;
     private Date dataTWJ;
-
-    public WycieczkaWielodniowa getWycieczkaWielodniowa() {
-        return wycieczkaWielodniowa;
-    }
-
-    public void setWycieczkaWielodniowa(WycieczkaWielodniowa wycieczkaWielodniowa) {
-        this.wycieczkaWielodniowa = wycieczkaWielodniowa;
-    }
 
     public Date getDataTWJ() {
         return dataTWJ;

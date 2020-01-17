@@ -5,6 +5,12 @@ public class PunktPosredni {
     private String nazwa;
     private double wysokoscNPM;
 
+    public PunktPosredni(int id, String nazwa, double wysokoscNPM) {
+        this.id = id;
+        this.nazwa = nazwa;
+        this.wysokoscNPM = wysokoscNPM;
+    }
+
     public int getId() {
         return id;
     }
