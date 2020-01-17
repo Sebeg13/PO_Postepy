@@ -39,7 +39,6 @@ public class PostepyPresenter {
         }, 3000);
 
 
-
     }
 
 }

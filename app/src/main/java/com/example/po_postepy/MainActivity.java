@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
         wycieczkiPunktujaceImage = findViewById(R.id.wycieczkiPunktujaceImg);
         linearLayout = findViewById(R.id.linearLayout);
 
+        currTripsAndRoutes = new ArrayList<>();
+
 
 
 
@@ -78,11 +80,15 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
 
     @Override
     public void showTrips() {
+        for(TextView tv : currTripsAndRoutes)
+            tv.setVisibility(View.VISIBLE);
         wycieczkiPunktujaceImage.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideTrips() {
+        for(TextView tv : currTripsAndRoutes)
+            tv.setVisibility(View.INVISIBLE);
         wycieczkiPunktujaceImage.setVisibility(View.INVISIBLE);
     }
 
