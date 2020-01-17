@@ -104,7 +104,7 @@ public class Trasa {
     @NonNull
     @Override
     public String toString() {
-        return nazwa + "          " + punkty;
+        return "          " + nazwa + "                                                                " + punkty;
     }
 
 

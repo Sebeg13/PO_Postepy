@@ -2,6 +2,7 @@ package com.example.po_postepy.model;
 
 
 import android.os.Handler;
+import android.util.Log;
 
 import com.example.po_postepy.model.Obszary.GrupaGorska;
 import com.example.po_postepy.model.Obszary.TerenGorski;
@@ -59,6 +60,26 @@ public class PostepyManagerModel {
                 new WycieczkaJednodniowa(1,"wycieczka1",new Date(2019,6,12),true,true,trasy1,got,zdobywajacy,przodownik);
 
         wycieczkiJednodniowe.add(wycieczka1);
+
+
+        PunktPosredni pp4 = new PunktPosredni(1, "Punkt1", 1200);
+        PunktPosredni pp5 = new PunktPosredni(2, "Punkt2", 1754);
+        Trasa trasa3 = new Trasa(1, "Trasa1",240,800,pp4,pp5, GrupaGorska.BW_A, TerenGorski.BeskidyWschodnie,8);
+        TrasaWycieczkiJednodniowej trasaWJ3 = new TrasaWycieczkiJednodniowej(1, trasa3);
+        PunktPosredni pp6 = new PunktPosredni(3, "Punkt3", 1654);
+        Trasa trasa4 = new Trasa(2, "Trasa1",645,70,pp5,pp6, GrupaGorska.BW_A, TerenGorski.BeskidyWschodnie,9);
+        TrasaWycieczkiJednodniowej trasaWJ4 = new TrasaWycieczkiJednodniowej(2, trasa4);
+        ArrayList<TrasaWycieczkiJednodniowej> trasy2 = new ArrayList<>(2);
+        trasy2.add(trasaWJ3);
+        trasy2.add(trasaWJ4);
+
+        WycieczkaJednodniowa wycieczka2 =
+                new WycieczkaJednodniowa(2,"wycieczka2",new Date(2019,6,12),true,true,trasy2,got,zdobywajacy,przodownik);
+
+        wycieczkiJednodniowe.add(wycieczka2);
+
+        Log.d("w1:",String.valueOf(wycieczka1.getTrasy().size()));
+
 
         maxPoints = typGOT.getWymaganePunkty();
         currentPoints = got.getPunktyZdobyte();

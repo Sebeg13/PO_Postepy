@@ -15,5 +15,6 @@ public interface PostepyView{
     public void setPoints(int currPonts, int maxPoints);
     public void setBadge(String badgeName, int badgeImage);
     public void setTrips(ArrayList<ArrayList<String>> list);
+    public void deleteTripTextViews();
 
 }

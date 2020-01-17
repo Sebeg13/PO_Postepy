@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
 
     @Override
     public void setTrips(ArrayList<ArrayList<String>> list) {
+        deleteTripTextViews();
         currTripsAndRoutes = new ArrayList<>();
         for(int ii=0; ii<list.size();ii++){
             List<String> trip = list.get(ii);
@@ -139,4 +140,14 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
             }
         }
     }
+
+    @Override
+    public void deleteTripTextViews() {
+        if(currTripsAndRoutes != null) {
+            for (TextView tv : currTripsAndRoutes)
+                linearLayout.removeView(tv);
+        }
+        }
+
+
 }

@@ -120,6 +120,6 @@ public class WycieczkaJednodniowa {
     @NonNull
     @Override
     public String toString() {
-        return nazwa + "          " + liczbaPunktow;
+        return "  " + nazwa + "                " + liczbaPunktow;
     }
 }
