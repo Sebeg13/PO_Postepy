@@ -1,5 +1,7 @@
 package com.example.po_postepy.model.Wycieczki;
 
+import androidx.annotation.NonNull;
+
 import com.example.po_postepy.model.Odznaki.GOT;
 import com.example.po_postepy.model.Uzytkownicy.Uzytkownik;
 
@@ -17,6 +19,8 @@ public class WycieczkaJednodniowa {
     private Uzytkownik zdobywajacy;
     private Uzytkownik przodownik;
 
+    private int liczbaPunktow = 0;
+
 
     public WycieczkaJednodniowa(int id, String nazwa, Date dataWycieczki, boolean zatwierdzona, boolean odbyta, ArrayList<TrasaWycieczkiJednodniowej> trasy, GOT got, Uzytkownik zdobywajacy, Uzytkownik przodownik) {
         this.id = id;
@@ -28,6 +32,13 @@ public class WycieczkaJednodniowa {
         this.got = got;
         this.zdobywajacy = zdobywajacy;
         this.przodownik = przodownik;
+        updatePoints();
+    }
+
+    public void updatePoints() {
+        for (TrasaWycieczkiJednodniowej trasa : trasy) {
+            liczbaPunktow += trasa.getTrasa().getPunkty();
+        }
     }
 
     public int getId() {
@@ -100,5 +111,15 @@ public class WycieczkaJednodniowa {
 
     public void setOdbyta(boolean odbyta) {
         this.odbyta = odbyta;
+    }
+
+    public int getLiczbaPunktow() {
+        return liczbaPunktow;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nazwa + "          " + liczbaPunktow;
     }
 }

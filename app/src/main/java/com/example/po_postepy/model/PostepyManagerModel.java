@@ -16,6 +16,7 @@ import com.example.po_postepy.model.Wycieczki.WycieczkaWielodniowa;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PostepyManagerModel {
 
@@ -29,6 +30,7 @@ public class PostepyManagerModel {
     private int bagdeImage; //images of badges will be stored in app as files, and in
                             // database there will be only id of image which should be used
 
+    private TripsFormater tripsFormater;
 
     public void downloadData(){
         //Here will be downloading data from database through web server instead of hardcoded data
@@ -53,18 +55,26 @@ public class PostepyManagerModel {
         trasy1.add(trasaWJ1);
         trasy1.add(trasaWJ2);
 
-
-
         WycieczkaJednodniowa wycieczka1 =
                 new WycieczkaJednodniowa(1,"wycieczka1",new Date(2019,6,12),true,true,trasy1,got,zdobywajacy,przodownik);
 
         wycieczkiJednodniowe.add(wycieczka1);
+
+        maxPoints = typGOT.getWymaganePunkty();
+        currentPoints = got.getPunktyZdobyte();
+        badgeName = typGOT.getRodzaj();
+        bagdeImage = typGOT.getId();
 
 //        maxPoints = 120;
 //        currentPoints = 36;
 //        badgeName = "Mała brązowa";
 //        bagdeImage = 1;
 
+    }
+
+    public ArrayList<ArrayList<String>> getFormattedTrips(){
+        tripsFormater = new TripsFormater();
+        return tripsFormater.formatTrips(wycieczkiJednodniowe);
     }
 
     public int getMaxPoints() {

@@ -23,6 +23,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -76,6 +77,14 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/wycieczkiPunktujaceImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/wyczpunktDescription"
+                app:srcCompat="@drawable/wycieczki_punktujace" />
 
         </LinearLayout>
     </ScrollView>

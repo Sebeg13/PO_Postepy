@@ -1,5 +1,7 @@
 package com.example.po_postepy.model.Wycieczki;
 
+import androidx.annotation.NonNull;
+
 import com.example.po_postepy.model.Obszary.GrupaGorska;
 import com.example.po_postepy.model.Obszary.TerenGorski;
 
@@ -99,6 +101,11 @@ public class Trasa {
     }
 
 
+    @NonNull
+    @Override
+    public String toString() {
+        return nazwa + "          " + punkty;
+    }
 
 
 }

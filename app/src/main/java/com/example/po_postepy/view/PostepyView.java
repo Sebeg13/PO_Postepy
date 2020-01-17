@@ -1,6 +1,8 @@
 package com.example.po_postepy.view;
 
-import android.view.View;
+
+import java.util.ArrayList;
+
 
 public interface PostepyView{
 
@@ -12,5 +14,6 @@ public interface PostepyView{
     public void hideLoadingIndicator();
     public void setPoints(int currPonts, int maxPoints);
     public void setBadge(String badgeName, int badgeImage);
+    public void setTrips(ArrayList<ArrayList<String>> list);
 
 }

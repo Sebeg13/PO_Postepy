@@ -30,6 +30,7 @@ public class PostepyPresenter {
                 model.downloadData();
                 view.setBadge(model.getBadgeName(), model.getBagdeImage());
                 view.setPoints(model.getCurrentPoints(), model.getMaxPoints());
+                view.setTrips(model.getFormattedTrips());
 
                 view.hideLoadingIndicator();
                 view.showBadge();
