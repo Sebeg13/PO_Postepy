@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Zdobywana Odznaka</string>
+    <string name="badgeDescription">Badge image</string>
+    <string name="loadingData">Wczytywanie \n danych...</string>
+</resources>
