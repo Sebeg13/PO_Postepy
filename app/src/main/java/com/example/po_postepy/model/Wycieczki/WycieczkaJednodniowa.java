@@ -14,7 +14,7 @@ public class WycieczkaJednodniowa {
     private Date dataWycieczki;
     private boolean zatwierdzona;
     private boolean odbyta;
-    private ArrayList<TrasaWycieczkiJednodniowej> trasy;
+    private ArrayList<Trasa> trasy;
     private GOT got;
     private Uzytkownik zdobywajacy;
     private Uzytkownik przodownik;
@@ -22,7 +22,7 @@ public class WycieczkaJednodniowa {
     private int liczbaPunktow = 0;
 
 
-    public WycieczkaJednodniowa(int id, String nazwa, Date dataWycieczki, boolean zatwierdzona, boolean odbyta, ArrayList<TrasaWycieczkiJednodniowej> trasy, GOT got, Uzytkownik zdobywajacy, Uzytkownik przodownik) {
+    public WycieczkaJednodniowa(int id, String nazwa, Date dataWycieczki, boolean zatwierdzona, boolean odbyta, ArrayList<Trasa> trasy, GOT got, Uzytkownik zdobywajacy, Uzytkownik przodownik) {
         this.id = id;
         this.nazwa = nazwa;
         this.dataWycieczki = dataWycieczki;
@@ -36,8 +36,9 @@ public class WycieczkaJednodniowa {
     }
 
     public void updatePoints() {
-        for (TrasaWycieczkiJednodniowej trasa : trasy) {
-            liczbaPunktow += trasa.getTrasa().getPunkty();
+        liczbaPunktow = 0;
+        for (Trasa trasa : trasy) {
+            liczbaPunktow += trasa.getPunkty();
         }
     }
 
@@ -49,11 +50,11 @@ public class WycieczkaJednodniowa {
         this.id = id;
     }
 
-    public ArrayList<TrasaWycieczkiJednodniowej> getTrasy() {
+    public ArrayList<Trasa> getTrasy() {
         return trasy;
     }
 
-    public void setTrasy(ArrayList<TrasaWycieczkiJednodniowej> trasy) {
+    public void setTrasy(ArrayList<Trasa> trasy) {
         this.trasy = trasy;
     }
 
@@ -120,6 +121,7 @@ public class WycieczkaJednodniowa {
     @NonNull
     @Override
     public String toString() {
-        return "  " + nazwa + "                " + liczbaPunktow;
+        return " "+ String.format("%-15s %-3d", nazwa, liczbaPunktow);
+//        return String.format("%1$" + String.valueOf(20-nazwa.length()) + "s", nazwa) + String.format("%1$" + String.valueOf(25-nazwa.length()) + "s", liczbaPunktow);
     }
 }

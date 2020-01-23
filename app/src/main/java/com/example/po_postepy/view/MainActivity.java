@@ -1,8 +1,9 @@
-package com.example.po_postepy;
+package com.example.po_postepy.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,6 +13,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.po_postepy.Constant;
+import com.example.po_postepy.R;
 import com.example.po_postepy.presenter.PostepyPresenter;
 import com.example.po_postepy.view.PostepyView;
 
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
         setSupportActionBar((Toolbar)findViewById(R.id.activity_main_toolbar));
 
 
-        presenter = new PostepyPresenter(this);
+        presenter = new PostepyPresenter(this, getApplicationContext());
 
         loadingBar = findViewById(R.id.loadingBar);
         pointsProgressBar = findViewById(R.id.pointsProgressBar);
@@ -137,12 +140,15 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
         for(int ii=0; ii<list.size();ii++){
             List<String> trip = list.get(ii);
             TextView textView = new TextView(this);
+            textView.setTypeface(Typeface.MONOSPACE);
             textView.setText(trip.get(0));
             textView.setTextSize((float) 30);
             linearLayout.addView(textView);
             currTripsAndRoutes.add(textView);
             for(int jj=1;jj<trip.size();jj++){
                 TextView textView2 = new TextView(this);
+                textView2.setTextSize(11);
+                textView2.setTypeface(Typeface.MONOSPACE);
                 textView2.setText(trip.get(jj));
                 currTripsAndRoutes.add(textView2);
                 linearLayout.addView(textView2);

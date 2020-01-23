@@ -104,7 +104,12 @@ public class Trasa {
     @NonNull
     @Override
     public String toString() {
-        return "          " + nazwa + "                                                                " + punkty;
+//        return "               "+ nazwa + String.format("%1$" + String.valueOf(60-nazwa.length()) + "s", punkty);
+//        String naz = "";
+//        if (punktA != null && punktB != null) {
+//              naz = punktA.getNazwa() + " - " + punktB.getNazwa();
+//        }
+        return "     " + String.format("%-38s %3d", nazwa, punkty);
     }
 
 

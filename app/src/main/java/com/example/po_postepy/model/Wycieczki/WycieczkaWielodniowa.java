@@ -14,7 +14,7 @@ public class WycieczkaWielodniowa {
     private GrupaGorska grupaGorska;
     private boolean zatwierdzona;
     private boolean odbyta;
-    private ArrayList<TrasaWycieczkiWielodniowej> trasy;
+    private ArrayList<Trasa> trasy;
     private GOT got;
     private Uzytkownik zdobywajacy;
     private Uzytkownik przodownik;
@@ -67,11 +67,11 @@ public class WycieczkaWielodniowa {
         this.odbyta = odbyta;
     }
 
-    public ArrayList<TrasaWycieczkiWielodniowej> getTrasy() {
+    public ArrayList<Trasa> getTrasy() {
         return trasy;
     }
 
-    public void setTrasy(ArrayList<TrasaWycieczkiWielodniowej> trasy) {
+    public void setTrasy(ArrayList<Trasa> trasy) {
         this.trasy = trasy;
     }
 
