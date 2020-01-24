@@ -12,9 +12,9 @@ public interface PostepyView{
     public void hideTrips();
     public void showLoadingIndicator();
     public void hideLoadingIndicator();
-    public void setPoints(int currPonts, int maxPoints);
-    public void setBadge(String badgeName, int badgeImage);
-    public void setTrips(ArrayList<ArrayList<String>> list);
+    public void displayPoints(int currPonts, int maxPoints);
+    public void displayBadge(String badgeName, int badgeImage);
+    public void displayTripsAndRoutes(ArrayList<ArrayList<String>> list);
     public void deleteTripTextViews();
 
 }

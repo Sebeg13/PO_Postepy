@@ -6,22 +6,18 @@ import androidx.appcompat.widget.Toolbar;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.po_postepy.Constant;
 import com.example.po_postepy.R;
 import com.example.po_postepy.presenter.PostepyPresenter;
-import com.example.po_postepy.view.PostepyView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity implements PostepyView {
 
@@ -33,9 +29,7 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     private TextView badgeName;
     private TextView badgePoints;
     private TextView loadingDataText;
-    private ImageView wycieczkiPunktujaceImage;
-
-    ArrayAdapter arrayAdapter;
+    private ImageView scoringTrips;
 
     List<TextView> currTripsAndRoutes;
 
@@ -57,15 +51,12 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
         badgeName = findViewById(R.id.badgeName);
         badgePoints = findViewById(R.id.badgePoints);
         loadingDataText = findViewById(R.id.loadingDataText);
-        wycieczkiPunktujaceImage = findViewById(R.id.wycieczkiPunktujaceImg);
+        scoringTrips = findViewById(R.id.wycieczkiPunktujaceImg);
         linearLayout = findViewById(R.id.linearLayout);
 
         currTripsAndRoutes = new ArrayList<>();
 
-
-
-
-        presenter.updateData();
+        presenter.downloadData();
     }
 
     @Override
@@ -88,14 +79,14 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     public void showTrips() {
         for(TextView tv : currTripsAndRoutes)
             tv.setVisibility(View.VISIBLE);
-        wycieczkiPunktujaceImage.setVisibility(View.VISIBLE);
+        scoringTrips.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideTrips() {
         for(TextView tv : currTripsAndRoutes)
             tv.setVisibility(View.INVISIBLE);
-        wycieczkiPunktujaceImage.setVisibility(View.INVISIBLE);
+        scoringTrips.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -111,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     }
 
     @Override
-    public void setPoints(int currPonts, int maxPoints) {
+    public void displayPoints(int currPonts, int maxPoints) {
         String textToDisplay = currPonts+"/"+maxPoints;
         badgePoints.setText(textToDisplay);
         pointsProgressBar.setMax(maxPoints);
@@ -119,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     }
 
     @Override
-    public void setBadge(String badgeName, int badgeImage) {
+    public void displayBadge(String badgeName, int badgeImage) {
         this.badgeName.setText(badgeName);
 
         switch (badgeImage){
@@ -134,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     }
 
     @Override
-    public void setTrips(ArrayList<ArrayList<String>> list) {
+    public void displayTripsAndRoutes(ArrayList<ArrayList<String>> list) {
         deleteTripTextViews();
         currTripsAndRoutes = new ArrayList<>();
         for(int ii=0; ii<list.size();ii++){
