@@ -3,7 +3,9 @@ package com.example.po_postepy.view;
 
 import java.util.ArrayList;
 
-
+/**
+ * Interfer PostepyView reprezentuje warstwę widoku we wzorcu MVP.
+ */
 public interface PostepyView{
 
 

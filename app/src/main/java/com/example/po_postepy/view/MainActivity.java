@@ -23,7 +23,9 @@ import com.example.po_postepy.presenter.PostepyPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Klasa MainActivity to klasa głównej aktywności
+ */
 public class MainActivity extends AppCompatActivity implements PostepyView {
 
     private PopupWindow popupWindow;
