@@ -1,7 +1,6 @@
 package com.example.po_postepy.presenter;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.po_postepy.model.PostepyManagerModel;
 import com.example.po_postepy.model.TripsFormater;
@@ -32,7 +31,7 @@ public class PostepyPresenter {
      */
     public void downloadData() {
         view.hideBadge();
-        view.hideTrips();
+        view.hideTripsAndRoutes();
         view.showLoadingIndicator();
 
         model.downloadTrips();
@@ -66,11 +65,11 @@ public class PostepyPresenter {
         view.displayPoints(getPointForAllTrips(), model.getMaxPoints());
 
         TripsFormater tripsFormater = new TripsFormater();
-        view.displayTripsAndRoutes(tripsFormater.formatTrips(getOneDayTrips()));
+        view.generateTripsAndRoutes(tripsFormater.formatTrips(getOneDayTrips()));
 
         view.hideLoadingIndicator();
         view.showBadge();
-        view.showTrips();
+        view.showTripsAndRoutes();
     }
 
     /**

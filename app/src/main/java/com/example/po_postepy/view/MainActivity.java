@@ -83,14 +83,14 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     }
 
     @Override
-    public void showTrips() {
+    public void showTripsAndRoutes() {
         for(TextView tv : currTripsAndRoutes)
             tv.setVisibility(View.VISIBLE);
         scoringTrips.setVisibility(View.VISIBLE);
     }
 
     @Override
-    public void hideTrips() {
+    public void hideTripsAndRoutes() {
         for(TextView tv : currTripsAndRoutes)
             tv.setVisibility(View.INVISIBLE);
         scoringTrips.setVisibility(View.INVISIBLE);
@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     }
 
     @Override
-    public void displayTripsAndRoutes(ArrayList<ArrayList<String>> list) {
-        deleteTripTextViews();
+    public void generateTripsAndRoutes(ArrayList<ArrayList<String>> list) {
+        deleteTripsAndRoutesTextViews();
         currTripsAndRoutes = new ArrayList<>();
         for(int ii=0; ii<list.size();ii++){
             List<String> trip = list.get(ii);
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
     }
 
     @Override
-    public void deleteTripTextViews() {
+    public void deleteTripsAndRoutesTextViews() {
         if(currTripsAndRoutes != null) {
             for (TextView tv : currTripsAndRoutes)
                 linearLayout.removeView(tv);
