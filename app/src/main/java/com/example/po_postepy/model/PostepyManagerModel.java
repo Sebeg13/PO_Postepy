@@ -44,8 +44,8 @@ public class PostepyManagerModel {
     /**
      * Kontruktor klasy PostepyManagerModel
      *
-     * @param presenter obiekt PostepyPresenter, odpowiedzialny za warstwę prezentacji
-     * @param context   kontekst aplikacji
+     * @param presenter referencja do obiektu PostepyPresenter, odpowiedzialnego za warstwę prezentacji
+     * @param context referencja do kontekstu aplikacji
      */
     public PostepyManagerModel(PostepyPresenter presenter, Context context) {
         this.presenter = presenter;

@@ -32,7 +32,6 @@ public class WycieczkaJednodniowa {
         this.got = got;
         this.zdobywajacy = zdobywajacy;
         this.przodownik = przodownik;
-        updatePoints();
     }
 
     public void updatePoints() {

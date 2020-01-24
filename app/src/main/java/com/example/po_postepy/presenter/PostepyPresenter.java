@@ -21,6 +21,11 @@ public class PostepyPresenter {
 
     private ArrayList<WycieczkaJednodniowa> oneDayTrips;
 
+    /**
+     * Konstruktos klasy PostepyPresenter
+     * @param view referencja do obiektu widoku
+     * @param context referencja do kontekstu aplikacji
+     */
     public PostepyPresenter(PostepyView view, Context context) {
         this.model = new PostepyManagerModel(this, context);
         this.view = view;
@@ -62,7 +67,7 @@ public class PostepyPresenter {
      */
     public void downloadDataPart4() {
         view.displayBadge(model.getBadgeName(), model.getBadgeImage());
-        view.displayPoints(getPointForAllTrips(), model.getMaxPoints());
+        view.displayPoints(getPointForAllTrips(getOneDayTrips()), model.getMaxPoints());
 
         TripsFormater tripsFormater = new TripsFormater();
         view.generateTripsAndRoutes(tripsFormater.formatTrips(getOneDayTrips()));
@@ -157,9 +162,10 @@ public class PostepyPresenter {
      * Metoda getPointsForAllTrips zwraca sumę punktów zdobytych podczas wszystkich wycieczek.
      * @return suma punktów zdobytych podczas wszystkich wycieczek
      */
-    public int getPointForAllTrips(){
+    public static int getPointForAllTrips(ArrayList<WycieczkaJednodniowa> oneDayTrips){
         int points = 0;
         for(WycieczkaJednodniowa trip : oneDayTrips){
+            trip.updatePoints();
             points+= trip.getLiczbaPunktow();
         }
         return points;
