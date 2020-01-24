@@ -3,4 +3,5 @@
     <string name="badgeDescription">Badge image</string>
     <string name="wyczpunktDescription">Wycieczki punktujace</string>
     <string name="loadingData">Wczytywanie \n danych...</string>
+    <string name="okButton">Ok</string>
 </resources>

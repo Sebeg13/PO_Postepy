@@ -77,18 +77,16 @@ public class PostepyManagerModel {
                                 }
                                 presenter.downloadDataPart2();
                             } else {
-//                                presenter.onLoginInfo(jsonObject.getString("message"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            presenter.onLoginInfo("Logowanie nie powiodło się! " + e.toString());
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-//                        presenter.onLoginInfo("Brak dostępu do bazy danych");
+                        presenter.showPopup("Brak dostępu do bazy danych");
                     }
                 }) {
             @Override
@@ -130,19 +128,16 @@ public class PostepyManagerModel {
                                 }
                                 presenter.findTripOfId(idTrip).updatePoints();
                                 presenter.downloadDataPart3();
-                            } else {
-//                                presenter.onLoginInfo(jsonObject.getString("message"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            presenter.onLoginInfo("Logowanie nie powiodło się! " + e.toString());
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-//                        presenter.onLoginInfo("Brak dostępu do bazy danych");
+                        presenter.showPopup("Brak dostępu do bazy danych");
                     }
                 }) {
             @Override
@@ -182,19 +177,16 @@ public class PostepyManagerModel {
 
                                 }
                                 presenter.downloadDataPart4();
-                            } else {
-//                                presenter.onLoginInfo(jsonObject.getString("message"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-//                            presenter.onLoginInfo("Logowanie nie powiodło się! " + e.toString());
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-//                        presenter.onLoginInfo("Brak dostępu do bazy danych");
+                        presenter.showPopup("Brak dostępu do bazy danych");
                     }
                 }) {
             @Override

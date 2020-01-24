@@ -3,11 +3,16 @@ package com.example.po_postepy.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -20,6 +25,8 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements PostepyView {
+
+    private PopupWindow popupWindow;
 
     private PostepyPresenter presenter;
 
@@ -154,6 +161,36 @@ public class MainActivity extends AppCompatActivity implements PostepyView {
                 linearLayout.removeView(tv);
         }
         }
+
+    @Override
+    public void showPopup(String message){
+        LayoutInflater layoutInflater = (LayoutInflater)getSystemService(Context. LAYOUT_INFLATER_SERVICE);
+        View layout = layoutInflater.inflate(R.layout.popup_window,null);
+
+        popupWindow = new PopupWindow(this);
+        popupWindow.setContentView(layout);
+        popupWindow.setWidth(800);
+        popupWindow.setHeight(600);
+        popupWindow.setFocusable(true);
+
+        // prevent clickable background
+        popupWindow.setBackgroundDrawable(null);
+
+        popupWindow.showAtLocation(layout, Gravity.CENTER, 1, 1);
+
+        TextView txtMessage = (TextView) layout.findViewById(R.id.messageTextView);
+        txtMessage.setText(message);
+
+        Button okButton = (Button) layout.findViewById(R.id.okButton);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+                presenter.downloadData();
+            }
+        });
+
+    }
 
 
 }

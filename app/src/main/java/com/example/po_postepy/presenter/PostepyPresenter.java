@@ -165,4 +165,13 @@ public class PostepyPresenter {
         }
         return points;
     }
+
+    /**
+     * Metoda showPopup przekazuje widokowi wiadomość, którą ma wyświetlić.
+     * @param message wiadomość do wyświetlenia
+     */
+    public void showPopup(String message){
+        view.showPopup(message);
+        view.hideLoadingIndicator();
+    }
 }

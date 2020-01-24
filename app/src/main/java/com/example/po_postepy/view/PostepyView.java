@@ -16,5 +16,6 @@ public interface PostepyView{
     public void displayBadge(String badgeName, int badgeImage);
     public void displayTripsAndRoutes(ArrayList<ArrayList<String>> list);
     public void deleteTripTextViews();
+    public void showPopup(String message);
 
 }
